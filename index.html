@@ -1,28 +1,76 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zero Hunger</title><link rel="stylesheet" href="css/styles.css"></head><body>
-<div class="header" role="banner"><div class="wrap">
-<h1>MNJ's Kitchen — Zero Hunger</h1>
-<p class="lead">Local Roots, Global Reach</p>
-<nav aria-label="Main navigation">
-<a href="index.html">Home</a>
-<a href="awareness.html">Awareness</a>
-<a href="solutions.html">Solutions</a>
-<a href="action.html">Call to Action</a>
-<a href="resources.html">Resources</a>
-<a href="sources.html">Sources</a>
-</nav></div></div>
-<main class="wrap"><h2>Welcome</h2>
-<div class="grid cols-3">
-<div class="card"><a href="awareness.html"><img src="assets/images/dreamstime_xxl_8211216.jpg" alt="Earth plate hunger" class="img-real"></a><h3>Awareness</h3></div>
-<div class="card"><a href="solutions.html"><img src="assets/images/dreamstime_xxl_186716033.jpg" alt="Vertical farm" class="img-real"></a><h3>Solutions</h3></div>
-<div class="card"><a href="action.html"><img src="assets/images/dreamstime_xxl_127773171.jpg" alt="Volunteers high five" class="img-real"></a><h3>Action</h3></div>
-</div></main><footer role="contentinfo">
-<button onclick="toggleContrast()">Toggle High Contrast</button>
-<button onclick="toggleAlts()">Toggle Image Descriptions</button>
-<p>Built by MNJ's Kitchen.</p>
-<script>
-function toggleContrast(){document.body.classList.toggle("high-contrast");}
-function toggleAlts(){document.body.classList.toggle("show-alts");}
-</script>
-</footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home · MNJ's Kitchen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  
+<nav>
+  <div class="navinner" role="navigation" aria-label="Main">
+    <div class="navlinks"><a href="index.html" aria-current="page">Home</a><a href="volunteer.html">Volunteer</a><a href="buy-local.html">Buy Local</a><a href="cut-waste.html">Cut Waste</a><a href="about.html">About</a><a href="resources.html">Resources</a></div>
+  </div>
+</nav>
+<div class="a11y-toolbar" role="region" aria-label="Accessibility controls">
+  <button class="a11y-btn" data-toggle="contrast" aria-pressed="false">High Contrast</button>
+  <button class="a11y-btn" data-toggle="text" aria-pressed="false">Large Text</button>
+  <button class="a11y-btn" data-toggle="dyslexic" aria-pressed="false">Dyslexia Font</button>
+</div>
+<script src="a11y.js" defer></script>
+
+  <main class="container" id="main">
+    
+<section class="hero">
+  <span class="badge">Team 1 · MNJ's Kitchen</span>
+  <h2>Simple steps for stronger local food systems</h2>
+</section>
+
+<section class="grid" style="margin-top:16px">
+  <article class="card">
+    <a href="https://www.volunteermatch.org/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/dreamstime_xxl_291362069.jpg" alt="Volunteers serving hot meals">
+    </a>
+    <h3>Volunteer</h3>
+    <ul class="check">
+      <li>Find roles that match your schedule</li>
+      <li>Support food banks and community kitchens</li>
+      <li>Invite a friend to double impact</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <a href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/dreamstime_xxl_137033594.jpg" alt="Baskets of produce at a local market">
+    </a>
+    <h3>Buy Local</h3>
+    <ul class="check">
+      <li>Seasonal produce supports local growers</li>
+      <li>Shorter supply chains reduce waste</li>
+      <li>Keep dollars in your community</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/dreamstime_xxl_389570716.jpg" alt="Meal-prepped food in glass jars">
+    </a>
+    <h3>Cut Waste</h3>
+    <ul class="check">
+      <li>Plan meals and store food properly</li>
+      <li>Label leftovers with a date</li>
+      <li>Freeze portions you will not eat soon</li>
+    </ul>
+  </article>
+</section>
+
+  </main>
+  
+<footer class="container">
+  <span>Built by MNJ's Kitchen</span>
+</footer>
+
+</body>
+</html>
