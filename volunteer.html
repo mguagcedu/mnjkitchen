@@ -1,65 +1,56 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Volunteer · MNJ's Kitchen</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  
-<nav>
-  <div class="navinner" role="navigation" aria-label="Main">
-    <div class="navlinks"><a href="index.html">Home</a><a href="volunteer.html" aria-current="page">Volunteer</a><a href="buy-local.html">Buy Local</a><a href="cut-waste.html">Cut Waste</a><a href="about.html">About</a><a href="resources.html">Resources</a></div>
-  </div>
-</nav>
-<div class="a11y-toolbar" role="region" aria-label="Accessibility controls">
-  <button class="a11y-btn" data-toggle="contrast" aria-pressed="false">High Contrast</button>
-  <button class="a11y-btn" data-toggle="text" aria-pressed="false">Large Text</button>
-  <button class="a11y-btn" data-toggle="dyslexic" aria-pressed="false">Dyslexia Font</button>
-</div>
-<script src="a11y.js" defer></script>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MNJ's Kitchen</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav><div class="navinner">
+  <a href="index.html" class="">Home</a>
+  <a href="volunteer.html" class="active">Volunteer</a>
+  <a href="buy-local.html" class="">Buy Local</a>
+  <a href="cut-waste.html" class="">Cut Waste</a>
+  <a href="about.html" class="">About</a>
+  <a href="resources.html" class="">Resources</a>
+  <div class="toolbar"><button id="btn-contrast" class="a11y-btn" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button><button id="btn-largetext" class="a11y-btn" aria-pressed="false" aria-label="Toggle large text">Large Text</button><button id="btn-theme" class="a11y-btn" aria-pressed="false" aria-label="Toggle theme">Light/Dark</button></div>
+</div></nav>
+<main id="main" class="container">
 
-  <main class="container" id="main">
-    
 <section class="hero">
-  <h2>Volunteer in your community</h2>
+  <h1>Volunteer</h1>
+  <p>Connect with organizations fighting hunger.</p>
 </section>
+
 <section class="grid">
-
   <figure class="card">
-    <a href="https://www.volunteermatch.org/" target="_blank" rel="noopener" aria-label="VolunteerMatch">
-      <img class="cta-img" src="assets/dreamstime_xxl_25961602.jpg" alt="Community meal long table">
+    <a class="imglink" href="https://www.volunteermatch.org/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/long_table_meal.jpg" alt="Community meal long table">
     </a>
-    <figcaption><a href="https://www.volunteermatch.org/" target="_blank" rel="noopener">Community meal</a></figcaption>
+    <div class="body">
+      <h3>VolunteerMatch</h3>
+      <p><a href="https://www.volunteermatch.org/" target="_blank" rel="noopener">Find opportunities near you</a></p>
+    </div>
   </figure>
 
   <figure class="card">
-    <a href="https://www.feedingamerica.org/take-action/volunteer" target="_blank" rel="noopener" aria-label="Feeding America">
-      <img class="cta-img" src="assets/dreamstime_xxl_291362069.jpg" alt="Volunteers serving meals">
+    <a class="imglink" href="https://www.feedingamerica.org/take-action/volunteer" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/volunteer_serve.jpg" alt="Volunteers serving meals">
     </a>
-    <figcaption><a href="https://www.feedingamerica.org/take-action/volunteer" target="_blank" rel="noopener">Serve a hot meal</a></figcaption>
+    <div class="body">
+      <h3>Feeding America</h3>
+      <p><a href="https://www.feedingamerica.org/take-action/volunteer" target="_blank" rel="noopener">Serve a hot meal</a></p>
+    </div>
   </figure>
 
   <figure class="card">
-    <a href="https://www.unitedway.org/volunteer" target="_blank" rel="noopener" aria-label="United Way">
-      <img class="cta-img" src="assets/dreamstime_xxl_343756203.jpg" alt="Food pantry cans">
+    <a class="imglink" href="https://www.unitedway.org/volunteer" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/food_pantry_cans.jpg" alt="Food pantry cans">
     </a>
-    <figcaption><a href="https://www.unitedway.org/volunteer" target="_blank" rel="noopener">Stock a pantry</a></figcaption>
+    <div class="body">
+      <h3>United Way</h3>
+      <p><a href="https://www.unitedway.org/volunteer" target="_blank" rel="noopener">Stock a pantry</a></p>
+    </div>
   </figure>
 </section>
-<section class="list card">
-  <a href="https://www.volunteermatch.org/" target="_blank" rel="noopener">VolunteerMatch<span>Open</span></a>
-<a href="https://www.feedingamerica.org/take-action/volunteer" target="_blank" rel="noopener">Feeding America<span>Open</span></a>
-<a href="https://www.unitedway.org/volunteer" target="_blank" rel="noopener">United Way<span>Open</span></a>
-</section>
-
-  </main>
-  
-<footer class="container">
-  <span>Built by MNJ's Kitchen</span>
-</footer>
-
-</body>
-</html>
+</main>
+<script src="a11y.js"></script>
+</body></html>

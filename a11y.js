@@ -1,32 +1,89 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const $ = s => document.querySelector(s);
+  const store = (k,v)=>{ try{ localStorage.setItem(k,v) }catch(e){} };
+  const read  = k=>{ try{ return localStorage.getItem(k) }catch(e){ return null } };
 
-(function(){
-  const root = document.documentElement;
-  const set = (k, cls) => {
-    const on = root.classList.toggle(cls);
-    localStorage.setItem(k, on ? '1' : '0');
-    return on;
+  const apply = () => {
+    document.documentElement.classList.toggle('high-contrast', read('a11y_contrast')==='1');
+    document.documentElement.classList.toggle('large-text',    read('a11y_text')==='1');
   };
-  const sync = (k, cls, btn) => {
-    const on = localStorage.getItem(k) === '1';
-    if(on) root.classList.add(cls);
-    if(btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  apply();
+
+  const btn = (id,key) => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.setAttribute('aria-pressed', read(key)==='1' ? 'true':'false');
+    el.addEventListener('click', () => {
+      const now = read(key)==='1' ? '0':'1';
+      store(key, now);
+      el.setAttribute('aria-pressed', now==='1' ? 'true':'false');
+      apply();
+    
+  // THEME TOGGLER
+  const themeKey = 'theme_pref'; // 'light' | 'dark' | null (system)
+  const applyTheme = (val) => {
+    const html = document.documentElement;
+    if(val === 'light'){ html.setAttribute('data-theme','light'); }
+    else if(val === 'dark'){ html.setAttribute('data-theme','dark'); }
+    else { html.removeAttribute('data-theme'); } // fall back to system
   };
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const toolbar = document.querySelector('.a11y-toolbar');
-    if(!toolbar) return;
-    const btns = toolbar.querySelectorAll('.a11y-btn');
-    btns.forEach(b=>{
-      b.addEventListener('click', ()=>{
-        const t = b.dataset.toggle;
-        let on=false;
-        if(t==='contrast') on=set('a11y_contrast','high-contrast');
-        if(t==='text') on=set('a11y_text','large-text');
-        if(t==='dyslexic') on=set('a11y_dys','dyslexic-font');
-        b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      });
+  // restore
+  try{ applyTheme(localStorage.getItem(themeKey)); }catch(e){}
+  const tbtn = document.getElementById('btn-theme');
+  if(tbtn){
+    tbtn.addEventListener('click', ()=>{
+      let cur = null;
+      try{ cur = localStorage.getItem(themeKey); }catch(e){}
+      const next = cur === 'dark' ? 'light' : 'dark';
+      try{ localStorage.setItem(themeKey, next); }catch(e){}
+      applyTheme(next);
+      tbtn.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+      tbtn.textContent = next === 'dark' ? 'Dark Mode' : 'Light Mode';
     });
-    sync('a11y_contrast','high-contrast', toolbar.querySelector('[data-toggle="contrast"]'));
-    sync('a11y_text','large-text', toolbar.querySelector('[data-toggle="text"]'));
-    sync('a11y_dys','dyslexic-font', toolbar.querySelector('[data-toggle="dyslexic"]'));
-  });
-})();
+    // Initialize button label/state
+    (function(){
+      let cur = null;
+      try{ cur = localStorage.getItem(themeKey); }catch(e){}
+      const dark = cur ? (cur==='dark') : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      tbtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      tbtn.textContent = dark ? 'Dark Mode' : 'Light Mode';
+    })();
+  }
+
+});
+  };
+  btn('btn-contrast','a11y_contrast');
+  btn('btn-largetext','a11y_text');
+
+  // THEME TOGGLER
+  const themeKey = 'theme_pref'; // 'light' | 'dark' | null (system)
+  const applyTheme = (val) => {
+    const html = document.documentElement;
+    if(val === 'light'){ html.setAttribute('data-theme','light'); }
+    else if(val === 'dark'){ html.setAttribute('data-theme','dark'); }
+    else { html.removeAttribute('data-theme'); } // fall back to system
+  };
+  // restore
+  try{ applyTheme(localStorage.getItem(themeKey)); }catch(e){}
+  const tbtn = document.getElementById('btn-theme');
+  if(tbtn){
+    tbtn.addEventListener('click', ()=>{
+      let cur = null;
+      try{ cur = localStorage.getItem(themeKey); }catch(e){}
+      const next = cur === 'dark' ? 'light' : 'dark';
+      try{ localStorage.setItem(themeKey, next); }catch(e){}
+      applyTheme(next);
+      tbtn.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+      tbtn.textContent = next === 'dark' ? 'Dark Mode' : 'Light Mode';
+    });
+    // Initialize button label/state
+    (function(){
+      let cur = null;
+      try{ cur = localStorage.getItem(themeKey); }catch(e){}
+      const dark = cur ? (cur==='dark') : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      tbtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      tbtn.textContent = dark ? 'Dark Mode' : 'Light Mode';
+    })();
+  }
+
+});

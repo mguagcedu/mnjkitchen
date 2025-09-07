@@ -1,35 +1,158 @@
-body{font-family:system-ui,Segoe UI,Roboto,sans-serif}
-
-/* ===== HARD FIX: eliminate slanted/oblique and rotated text site-wide ===== */
-html, body {
-  font-style: normal !important;
-  font-synthesis: none !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  /* Light theme (default) */
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#334155;
+  --accent:#16a34a;
+  --accent-2:#1d4ed8;
+  --ring:#94a3b8;
+}
+/* Auto dark if user prefers, unless overridden by toggle */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0a1222;
+    --card:#0f1b2e;
+    --text:#f2f6fb;
+    --muted:#b6c6dc;
+    --accent:#22c55e;
+    --accent-2:#3b82f6;
+    --ring:#33507a;
+  }
+}
+/* Explicit dark mode (has priority) */
+html[data-theme="dark"]{
+  --bg:#0a1222;
+  --card:#0f1b2e;
+  --text:#f2f6fb;
+  --muted:#b6c6dc;
+  --accent:#22c55e;
+  --accent-2:#3b82f6;
+  --ring:#33507a;
+}
+/* Explicit light mode */
+html[data-theme="light"]{
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#334155;
+  --accent:#16a34a;
+  --accent-2:#1d4ed8;
+  --ring:#94a3b8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+a{color:#a5d6ff} img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+nav{position:sticky;top:0;background:rgba(10,14,25,.9);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #0f172a}
+.navinner{display:flex;gap:10px;padding:10px 16px}
+.navinner a{padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--text)}
+.navinner a.active, .navinner a:hover{background:#0f2036}
+.hero{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;margin:18px 0 8px}
+.hero h1{font-size:28px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.card .body{padding:16px 18px 20px}
+.card h3{margin:8px 0 6px}
+.card a.imglink{display:block;border-bottom:1px solid rgba(255,255,255,.06)}
+.cta-img{aspect-ratio:16/9;object-fit:cover}
+/* checklist */
+ul.check{list-style:none;margin:8px 0 0;padding-left:0}
+ul.check li{position:relative;padding-left:26px;margin:8px 0}
+ul.check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);}
+/* accessibility toolbar */
+.toolbar{display:flex;gap:8px;margin-left:auto}
+.a11y-btn{background:#0f2036;border:1px solid var(--ring);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+.a11y-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
+/* high contrast + large text */
+html.high-contrast body{filter:contrast(1.15) saturate(1.05)}
+html.large-text{font-size:18px}
+/* skip link */
+.skip-link{position:absolute;left:-9999px;top:auto}
+.skip-link:focus{left:16px;top:12px;background:#22c55e;color:#0b1020;padding:10px 14px;border-radius:8px}
+/* APA references */
+.references{background:var(--card);padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.06)}
+.ref-list{list-style:none;margin:0;padding-left:0}
+.ref-list li{margin:10px 0;padding-left:24px;text-indent:-24px}
+/* HARD GUARANTEES: no rotated/oblique text anywhere */
+html, body, *, *::before, *::after{
+  font-style:normal !important;
+  transform:none !important;
+  rotate:0 !important;
+  writing-mode:horizontal-tb !important;
+  text-orientation:mixed !important;
 }
 
-/* Globally neutralize italics/oblique */
-*, *::before, *::after {
-  font-style: normal !important;
-}
+/* Week 4 color upgrades */
+a{color:var(--accent-2); text-decoration:underline; text-underline-offset:2px}
+a:hover{color:#60a5fa}
 
-/* Ensure common text elements are upright */
-p, li, ul, ol, figcaption, span, a, strong, b, h1, h2, h3, h4, h5, h6, small {
-  font-style: normal !important;
-}
+/* Buttons and toolbar */
+.a11y-btn{background:#0f2036;border:1px solid var(--ring);color:var(--text)}
+.a11y-btn:hover{background:#17345a}
+.a11y-btn:focus{outline:3px solid var(--accent-2); outline-offset:2px}
 
-/* Keep checklists upright and horizontal */
-ul.check, ul.check li, ul.check li::before {
-  transform: none !important;
-  rotate: 0 !important;
-  writing-mode: horizontal-tb !important;
-  text-orientation: mixed !important;
-}
+/* Nav active/hover */
+.navinner a.active, .navinner a:hover{background:#123055; color:var(--text);}
 
-/* Safety: remove unexpected transforms that could angle text */
-.card, .hero, .grid, .container, nav, .navinner, .a11y-toolbar {
-  transform: none !important;
-}
+/* Cards */
+.card{background:var(--card); border-color:#122540}
+.card .body{color:var(--muted)}
+.card h3{color:var(--text)}
+.card .imglink:focus{outline:3px solid var(--accent-2); outline-offset:3px; border-radius:12px}
 
-/* Ensure captions and badge text are normal */
-.card figcaption, .badge { font-style: normal !important; }
+/* Checklist checks in accent green */
+ul.check li::before{color:var(--accent)}
+
+/* High contrast mode tune */
+html.high-contrast body{filter:none}
+html.high-contrast :root{
+  /* Light theme (default) */
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#334155;
+  --accent:#16a34a;
+  --accent-2:#1d4ed8;
+  --ring:#94a3b8;
+}
+/* Auto dark if user prefers, unless overridden by toggle */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0a1222;
+    --card:#0f1b2e;
+    --text:#f2f6fb;
+    --muted:#b6c6dc;
+    --accent:#22c55e;
+    --accent-2:#3b82f6;
+    --ring:#33507a;
+  }
+}
+/* Explicit dark mode (has priority) */
+html[data-theme="dark"]{
+  --bg:#0a1222;
+  --card:#0f1b2e;
+  --text:#f2f6fb;
+  --muted:#b6c6dc;
+  --accent:#22c55e;
+  --accent-2:#3b82f6;
+  --ring:#33507a;
+}
+/* Explicit light mode */
+html[data-theme="light"]{
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --text:#0b1220;
+  --muted:#334155;
+  --accent:#16a34a;
+  --accent-2:#1d4ed8;
+  --ring:#94a3b8;
+}
+html.high-contrast a{color:#93c5fd}
+
+/* Theme-aware tweaks */
+body{background:var(--bg);color:var(--text)}
+.card{background:var(--card);border-color:color-mix(in oklab, var(--ring) 40%, transparent)}
+.navinner a.active, .navinner a:hover{background:color-mix(in oklab, var(--accent-2) 18%, var(--bg)); color:var(--text);}
+.a11y-btn{background:color-mix(in oklab, var(--accent-2) 10%, var(--bg)); border:1px solid var(--ring); color:var(--text)}
+.a11y-btn:hover{background:color-mix(in oklab, var(--accent-2) 16%, var(--bg))}

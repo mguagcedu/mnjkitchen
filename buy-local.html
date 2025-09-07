@@ -1,64 +1,56 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Buy Local · MNJ's Kitchen</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  
-<nav>
-  <div class="navinner" role="navigation" aria-label="Main">
-    <div class="navlinks"><a href="index.html">Home</a><a href="volunteer.html">Volunteer</a><a href="buy-local.html" aria-current="page">Buy Local</a><a href="cut-waste.html">Cut Waste</a><a href="about.html">About</a><a href="resources.html">Resources</a></div>
-  </div>
-</nav>
-<div class="a11y-toolbar" role="region" aria-label="Accessibility controls">
-  <button class="a11y-btn" data-toggle="contrast" aria-pressed="false">High Contrast</button>
-  <button class="a11y-btn" data-toggle="text" aria-pressed="false">Large Text</button>
-  <button class="a11y-btn" data-toggle="dyslexic" aria-pressed="false">Dyslexia Font</button>
-</div>
-<script src="a11y.js" defer></script>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MNJ's Kitchen</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav><div class="navinner">
+  <a href="index.html" class="">Home</a>
+  <a href="volunteer.html" class="">Volunteer</a>
+  <a href="buy-local.html" class="active">Buy Local</a>
+  <a href="cut-waste.html" class="">Cut Waste</a>
+  <a href="about.html" class="">About</a>
+  <a href="resources.html" class="">Resources</a>
+  <div class="toolbar"><button id="btn-contrast" class="a11y-btn" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button><button id="btn-largetext" class="a11y-btn" aria-pressed="false" aria-label="Toggle large text">Large Text</button><button id="btn-theme" class="a11y-btn" aria-pressed="false" aria-label="Toggle theme">Light/Dark</button></div>
+</div></nav>
+<main id="main" class="container">
 
-  <main class="container" id="main">
-    
 <section class="hero">
-  <h2>Buy local produce</h2>
+  <h1>Buy Local</h1>
+  <p>Choose nearby markets and growers.</p>
 </section>
 
 <section class="grid">
   <figure class="card">
-    <a href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener" aria-label="LocalHarvest – Farmers Markets">
-      <img class="cta-img" src="assets/dreamstime_xxl_137033594.jpg" alt="Tomatoes and produce in baskets">
+    <a class="imglink" href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/market_baskets.jpg" alt="Neighborhood market baskets">
     </a>
-    <figcaption><a href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener">Neighborhood market</a></figcaption>
+    <div class="body">
+      <h3>LocalHarvest – Markets</h3>
+      <p><a href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener">Find a farmers market</a></p>
+    </div>
   </figure>
+
   <figure class="card">
-    <a href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="_blank" rel="noopener" aria-label="USDA – Farmers Market Directory">
-      <img class="cta-img" src="assets/dreamstime_xxl_59726926.jpg" alt="Vendor at farmers market">
+    <a class="imglink" href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/market_vendor.jpg" alt="Vendor at farmers market">
     </a>
-    <figcaption><a href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="_blank" rel="noopener">Support local vendors</a></figcaption>
+    <div class="body">
+      <h3>USDA – Directory</h3>
+      <p><a href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="_blank" rel="noopener">Official market directory</a></p>
+    </div>
   </figure>
+
   <figure class="card">
-    <a href="https://www.localharvest.org/csa/" target="_blank" rel="noopener" aria-label="LocalHarvest – CSA Finder">
-      <img class="cta-img" src="assets/dreamstime_xxl_186716033.jpg" alt="Indoor vertical farm">
+    <a class="imglink" href="https://www.localharvest.org/csa/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/vertical_farm.jpg" alt="Indoor vertical farm">
     </a>
-    <figcaption><a href="https://www.localharvest.org/csa/" target="_blank" rel="noopener">Innovative growing</a></figcaption>
+    <div class="body">
+      <h3>LocalHarvest – CSA</h3>
+      <p><a href="https://www.localharvest.org/csa/" target="_blank" rel="noopener">Join a CSA</a></p>
+    </div>
   </figure>
 </section>
-
-<section class="list card">
-  <a href="https://www.localharvest.org/farmers-markets/" target="_blank" rel="noopener">LocalHarvest Farmers Markets<span>Open</span></a>
-<a href="https://www.ams.usda.gov/local-food-directories/farmersmarkets" target="_blank" rel="noopener">USDA Farmers Market Directory<span>Open</span></a>
-<a href="https://www.localharvest.org/csa/" target="_blank" rel="noopener">Community Supported Agriculture (CSA) Finder<span>Open</span></a>
-</section>
-
-  </main>
-  
-<footer class="container">
-  <span>Built by MNJ's Kitchen</span>
-</footer>
-
-</body>
-</html>
+</main>
+<script src="a11y.js"></script>
+</body></html>

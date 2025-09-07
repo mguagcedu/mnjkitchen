@@ -1,64 +1,56 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Cut Waste · MNJ's Kitchen</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  
-<nav>
-  <div class="navinner" role="navigation" aria-label="Main">
-    <div class="navlinks"><a href="index.html">Home</a><a href="volunteer.html">Volunteer</a><a href="buy-local.html">Buy Local</a><a href="cut-waste.html" aria-current="page">Cut Waste</a><a href="about.html">About</a><a href="resources.html">Resources</a></div>
-  </div>
-</nav>
-<div class="a11y-toolbar" role="region" aria-label="Accessibility controls">
-  <button class="a11y-btn" data-toggle="contrast" aria-pressed="false">High Contrast</button>
-  <button class="a11y-btn" data-toggle="text" aria-pressed="false">Large Text</button>
-  <button class="a11y-btn" data-toggle="dyslexic" aria-pressed="false">Dyslexia Font</button>
-</div>
-<script src="a11y.js" defer></script>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MNJ's Kitchen</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav><div class="navinner">
+  <a href="index.html" class="">Home</a>
+  <a href="volunteer.html" class="">Volunteer</a>
+  <a href="buy-local.html" class="">Buy Local</a>
+  <a href="cut-waste.html" class="active">Cut Waste</a>
+  <a href="about.html" class="">About</a>
+  <a href="resources.html" class="">Resources</a>
+  <div class="toolbar"><button id="btn-contrast" class="a11y-btn" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button><button id="btn-largetext" class="a11y-btn" aria-pressed="false" aria-label="Toggle large text">Large Text</button><button id="btn-theme" class="a11y-btn" aria-pressed="false" aria-label="Toggle theme">Light/Dark</button></div>
+</div></nav>
+<main id="main" class="container">
 
-  <main class="container" id="main">
-    
 <section class="hero">
-  <h2>Cut food waste</h2>
+  <h1>Cut Waste</h1>
+  <p>Reduce food waste at home.</p>
 </section>
 
 <section class="grid">
   <figure class="card">
-    <a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener" aria-label="EPA – Reducing Wasted Food at Home">
-      <img class="cta-img" src="assets/dreamstime_xxl_389570716.jpg" alt="Organized fridge with jars">
+    <a class="imglink" href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/fridge_jars.jpg" alt="Organized fridge with jars">
     </a>
-    <figcaption><a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener">Plan & store smart</a></figcaption>
+    <div class="body">
+      <h3>EPA – Reduce Waste</h3>
+      <p><a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener">Plan & store smart</a></p>
+    </div>
   </figure>
+
   <figure class="card">
-    <a href="https://savethefood.com/" target="_blank" rel="noopener" aria-label="Save The Food">
-      <img class="cta-img" src="assets/dreamstime_xxl_390502033.jpg" alt="Food in trash bin">
+    <a class="imglink" href="https://savethefood.com/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/trash_food.jpg" alt="Food thrown in trash bin">
     </a>
-    <figcaption><a href="https://savethefood.com/" target="_blank" rel="noopener">Prevent waste</a></figcaption>
+    <div class="body">
+      <h3>Save The Food</h3>
+      <p><a href="https://savethefood.com/" target="_blank" rel="noopener">Prevent waste</a></p>
+    </div>
   </figure>
+
   <figure class="card">
-    <a href="https://refed.org/" target="_blank" rel="noopener" aria-label="ReFED – Insights">
-      <img class="cta-img" src="assets/dreamstime_xxl_247151885.jpg" alt="Circular food diagram">
+    <a class="imglink" href="https://refed.org/" target="_blank" rel="noopener">
+      <img class="cta-img" src="assets/circular_food.jpg" alt="Circular food diagram">
     </a>
-    <figcaption><a href="https://refed.org/" target="_blank" rel="noopener">Compost and cycle</a></figcaption>
+    <div class="body">
+      <h3>ReFED – Insights</h3>
+      <p><a href="https://refed.org/" target="_blank" rel="noopener">See solutions and data</a></p>
+    </div>
   </figure>
 </section>
-
-<section class="list card">
-  <a href="https://www.epa.gov/recycle/reducing-wasted-food-home" target="_blank" rel="noopener">EPA Food: Too Good To Waste<span>Open</span></a>
-<a href="https://savethefood.com/" target="_blank" rel="noopener">Save The Food<span>Open</span></a>
-<a href="https://refed.org/" target="_blank" rel="noopener">ReFED Insights<span>Open</span></a>
-</section>
-
-  </main>
-  
-<footer class="container">
-  <span>Built by MNJ's Kitchen</span>
-</footer>
-
-</body>
-</html>
+</main>
+<script src="a11y.js"></script>
+</body></html>

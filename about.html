@@ -1,51 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About · MNJ's Kitchen</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  
-<nav>
-  <div class="navinner" role="navigation" aria-label="Main">
-    <div class="navlinks"><a href="index.html">Home</a><a href="volunteer.html">Volunteer</a><a href="buy-local.html">Buy Local</a><a href="cut-waste.html">Cut Waste</a><a href="about.html" aria-current="page">About</a><a href="resources.html">Resources</a></div>
-  </div>
-</nav>
-<div class="a11y-toolbar" role="region" aria-label="Accessibility controls">
-  <button class="a11y-btn" data-toggle="contrast" aria-pressed="false">High Contrast</button>
-  <button class="a11y-btn" data-toggle="text" aria-pressed="false">Large Text</button>
-  <button class="a11y-btn" data-toggle="dyslexic" aria-pressed="false">Dyslexia Font</button>
-</div>
-<script src="a11y.js" defer></script>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MNJ's Kitchen</title>
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav><div class="navinner">
+  <a href="index.html" class="">Home</a>
+  <a href="volunteer.html" class="">Volunteer</a>
+  <a href="buy-local.html" class="">Buy Local</a>
+  <a href="cut-waste.html" class="">Cut Waste</a>
+  <a href="about.html" class="active">About</a>
+  <a href="resources.html" class="">Resources</a>
+  <div class="toolbar"><button id="btn-contrast" class="a11y-btn" aria-pressed="false" aria-label="Toggle high contrast">High Contrast</button><button id="btn-largetext" class="a11y-btn" aria-pressed="false" aria-label="Toggle large text">Large Text</button><button id="btn-theme" class="a11y-btn" aria-pressed="false" aria-label="Toggle theme">Light/Dark</button></div>
+</div></nav>
+<main id="main" class="container">
 
-  <main class="container" id="main">
-    
 <section class="hero">
-  <h2>About MNJ's Kitchen</h2>
-  <p>Team 1 for HON490 focuses on practical actions that support Zero Hunger.</p>
+  <h1>About this project</h1>
+  <p>Built for HON490: practical actions to advance Zero Hunger in our community.</p>
 </section>
-<section class="grid">
-  <figure class="card"><img class="cta-img" src="assets/dreamstime_xxl_8211216.jpg" alt="Earth as a plate"><figcaption>Global perspective</figcaption></figure>
-  <figure class="card"><img class="cta-img" src="assets/dreamstime_xxl_139565329.jpg" alt="World map on dinner plate card"><figcaption>Food systems everywhere</figcaption></figure>
-  <figure class="card"><img class="cta-img" src="assets/dreamstime_xxl_127773171.jpg" alt="Volunteer teamwork high five"><figcaption>Civic engagement</figcaption></figure>
-</section>
-<section class="card">
-  <h3>Team</h3>
+<section class="card"><div class="body">
+  <p>We focus on three concrete actions: volunteering, buying local, and cutting waste.</p>
+  <h3>Team 1 · MNJ's Kitchen</h3>
   <ul class="check">
+    <li>Manuel Gomez</li>
     <li>Johniesha Fisher</li>
     <li>Nicole Nelson</li>
-    <li>Manuel Gomez</li>
   </ul>
-</section>
-
-  </main>
-  
-<footer class="container">
-  <span>Built by MNJ's Kitchen</span>
-</footer>
-
-</body>
-</html>
+</div></section>
+</main>
+<script src="a11y.js"></script>
+</body></html>
