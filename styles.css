@@ -55,3 +55,41 @@ ul.check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--acc
 .references{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px}
 .ref-list{list-style:none;margin:0;padding:0}
 .ref-list li{margin:10px 0;padding-left:24px;text-indent:-24px}
+
+/* === HARD FIX: prevent per-letter stacking and ensure normal LTR wrapping === */
+:root, html, body, main, .container, .grid, .card, .card .body, .card .body * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  unicode-bidi: normal !important;
+
+  /* Critical: don't allow character-level breaking */
+  white-space: normal !important;
+  word-break: keep-all !important;   /* avoid breaking Latin words at any letter */
+  overflow-wrap: anywhere !important;/* allow wrap at word boundaries */
+  hyphens: auto !important;
+
+  max-width: 100% !important;
+}
+
+/* Ensure list items render as full-width blocks with proper layout */
+ul.check{display:block !important; width:100% !important}
+ul.check li{
+  display:list-item !important;
+  list-style:none;
+  padding-left:26px;
+  margin:8px 0;
+}
+ul.check li::before{content:"✓"; position:absolute; left:0; top:0}
+
+/* Prevent any inherited transforms or rotations */
+.card .body, .card .body * {
+  transform: none !important;
+  rotate: 0 !important;
+  writing-mode: horizontal-tb !important;
+}
+
+/* Make sure grid columns allow enough width for text */
+.grid{grid-template-columns:repeat(3,minmax(280px,1fr)) !important; align-items:start}
+@media (max-width: 980px){ .grid{grid-template-columns:1fr !important} }
+
