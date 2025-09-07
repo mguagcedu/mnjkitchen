@@ -16,3 +16,19 @@ ul.check, ul.check li, .card p, .card h3, .hero p, .card figcaption, .badge {
   transform: none !important;
   rotate: 0 !important;
 }
+
+
+/* === Ensure left-to-right flow with normal wrapping site-wide === */
+html, body, * {
+  direction: ltr !important;
+  unicode-bidi: normal !important;
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+ul.check, ul.check li, .card p, .card h3, .hero p, .card figcaption, .badge {
+  display: block !important;
+  text-align: left !important;
+}
