@@ -1,4 +1,4 @@
-
+/* Core palette with light/dark support */
 :root{
   --bg:#f7fafc; --card:#ffffff; --text:#0b1220; --muted:#334155;
   --accent:#16a34a; --accent-2:#1d4ed8; --ring:#cbd5e1;
@@ -9,12 +9,13 @@
 html[data-theme="dark"]{ --bg:#0b1220; --card:#101828; --text:#eef2f7; --muted:#b6c6dc; --accent:#22c55e; --accent-2:#60a5fa; --ring:#314863; }
 html[data-theme="light"]{ --bg:#f7fafc; --card:#ffffff; --text:#0b1220; --muted:#334155; --accent:#16a34a; --accent-2:#1d4ed8; --ring:#cbd5e1; }
 
+/* Reset + hard guarantees */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
 html, body, *, *::before, *::after{
   direction:ltr !important; unicode-bidi:normal !important;
   writing-mode:horizontal-tb !important; text-orientation:mixed !important;
-  white-space:normal !important; word-break:keep-all !important; overflow-wrap:anywhere !important;
+  white-space:normal !important; word-break:normal !important; overflow-wrap:break-word !important;
   font-style:normal !important; transform:none !important; rotate:0 !important;
 }
 img{max-width:100%;display:block}
@@ -29,14 +30,14 @@ nav{position:sticky;top:0;background:color-mix(in srgb, var(--bg) 85%, black 15%
 
 /* Toolbar */
 .toolbar{display:flex;gap:8px;margin-left:auto}
-.btn{border:1px solid var(--ring);background:color-mix(in srgb, var(--bg) 75%, var(--accent-2) 25%);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
-.btn:hover{background:color-mix(in srgb, var(--bg) 60%, var(--accent-2) 40%)}
+.btn{border:1px solid var(--ring);background:color-mix(in srgb, var(--bg) 70%, var(--accent-2) 30%);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+.btn:hover{background:color-mix(in srgb, var(--bg) 55%, var(--accent-2) 45%)}
 .btn:focus{outline:3px solid var(--accent-2);outline-offset:2px}
 
 /* Hero + grid */
 .hero{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;margin:18px 0 8px}
 .hero h1{margin:0;font-size:28px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(280px,1fr));gap:24px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 
 /* Card */
 .card{background:var(--card);border:1px solid var(--ring);border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08)}
@@ -54,3 +55,41 @@ ul.check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--acc
 .references{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px}
 .ref-list{list-style:none;margin:0;padding:0}
 .ref-list li{margin:10px 0;padding-left:24px;text-indent:-24px}
+
+/* === HARD FIX: prevent per-letter stacking and ensure normal LTR wrapping === */
+:root, html, body, main, .container, .grid, .card, .card .body, .card .body * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  unicode-bidi: normal !important;
+
+  /* Critical: don't allow character-level breaking */
+  white-space: normal !important;
+  word-break: keep-all !important;   /* avoid breaking Latin words at any letter */
+  overflow-wrap: anywhere !important;/* allow wrap at word boundaries */
+  hyphens: auto !important;
+
+  max-width: 100% !important;
+}
+
+/* Ensure list items render as full-width blocks with proper layout */
+ul.check{display:block !important; width:100% !important}
+ul.check li{
+  display:list-item !important;
+  list-style:none;
+  padding-left:26px;
+  margin:8px 0;
+}
+ul.check li::before{content:"✓"; position:absolute; left:0; top:0}
+
+/* Prevent any inherited transforms or rotations */
+.card .body, .card .body * {
+  transform: none !important;
+  rotate: 0 !important;
+  writing-mode: horizontal-tb !important;
+}
+
+/* Make sure grid columns allow enough width for text */
+.grid{grid-template-columns:repeat(3,minmax(280px,1fr)) !important; align-items:start}
+@media (max-width: 980px){ .grid{grid-template-columns:1fr !important} }
+
